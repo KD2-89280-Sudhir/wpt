@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sticky Notes with Bootstrap</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #3b3b3b;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    .header {
+      background-color: #2c2c2c;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .icons span {
+      margin: 0 5px;
+      cursor: default;
+      font-size: 1.2rem;
+    }
+
+    .donate-btn {
+      background-color: #55acee;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 5px;
+    }
+
+    .note {
+      width: 180px;
+      height: 200px;
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+      position: relative;
+    }
+
+    .note-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .note textarea {
+      width: 100%;
+      height: 130px;
+      resize: none;
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 0.9rem;
+    }
+
+    .pin {
+      font-size: 1rem;
+    }
+
+    .note.red { background-color: #f44336; }
+    .note.blue { background-color: #2196f3; }
+    .note.orange { background-color: #ff9800; }
+    .note.purple { background-color: #673ab7; }
+    .note.pink { background-color: #e91e63; }
+    .note.yellow { background-color: #ffc107; }
+    .note.teal { background-color: #009688; }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div>
+      <span class="fw-bold">HTML5Sticky</span>
+      <span class="icons">
+        <span>🟢</span>
+        <span>❌</span>
+        <span>⚙️</span>
+      </span>
+    </div>
+    <button class="donate-btn">💙 Donate</button>
+  </div>
+
+  <div class="container mt-4">
+    <div class="row g-3 justify-content-start">
+      <div class="col-auto">
+        <div class="note red">
+          <div class="note-header">
+            <span class="pin">📌</span>
+            <span>3/18/2020 12:40 PM</span>
+            <span>❌</span>
+          </div>
+          <textarea placeholder="Text here..."></textarea>
+        </div>
+      </div>
+      <div class="col-auto">
+        <div class="note blue">
+          <div class="note-header">
+            <span class="pin">📌</span>
+            <span>3/18/2020 12:40 PM</span>
+            <span>❌</span>
+          </div>
+          <textarea placeholder="Text here..."></textarea>
+        </div>
+      </div>
+      <div class="col-auto">
+        <div class="note teal">
+          <div class="note-header">
+            <span class="pin">📌</span>
+            <span>3/18/2020 12:40 PM</span>
+            <span>❌</span>
+          </div>
+          <textarea placeholder="Text here..."></textarea>
+        </div>
+      </div>
+      <div class="col-auto">
+        <div class="note orange">
+          <div class="note-header">
+            <span class="pin">📌</span>
+            <span>3/18/2020 12:40 PM</span>
+            <span>❌</span>
+          </div>
+          <textarea placeholder="Text here..."></textarea>
+        </div>
+      </div>
+      <div class="col-auto">
+        <div class="note purple">
+          <div class="note-header">
+            <span class="pin">📌</span>
+            <span>3/18/2020 12:40 PM</span>
+            <span>❌</span>
+          </div>
+          <textarea placeholder="Text here..."></textarea>
+        </div>
+      </div>
+      <div class="col-auto">
+        <div class="note yellow text-dark">
+          <div class="note-header">
+            <span class="pin">📌</span>
+            <span>3/18/2020 12:40 PM</span>
+            <span>❌</span>
+          </div>
+          <textarea placeholder="Text here..."></textarea>
+        </div>
+      </div>
+      <div class="col-auto">
+        <div class="note pink">
+          <div class="note-header">
+            <span class="pin">📌</span>
+            <span>3/18/2020 12:40 PM</span>
+            <span>❌</span>
+          </div>
+          <textarea placeholder="Text here..."></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
