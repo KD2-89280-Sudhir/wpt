@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q3</title>
+</head>
+<body>
+    <script>
+        let arr =[]
+        function acceptNum(){
+            let num = prompt("Enter a number (n):")
+
+            if (!isNaN(num) && Number(num) >= 0) {
+                return Number(num);
+            } else {
+                alert("Please enter valid positive number!");
+                return acceptNum(); 
+            }
+        }
+
+        function even(){
+            const num = acceptNum()
+
+            for(i = 1;i<=num;i++){
+                if(i%2 === 0){
+                    arr.push(i)
+                }
+            }
+            alert("Check the console for the list of even numbers!")
+            
+            console.log("Even numbers ≤ "+num+": "+arr.join(", "))
+        }
+        even()
+        
+    </script>
+
+</body>
+</html>

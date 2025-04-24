@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q1</title>
+</head>
+
+<body>
+    <script>
+        function acceptNum1() {
+            let num = prompt("Enter first positive number:");
+            if (!isNaN(num) && Number(num) >= 0) {
+                return Number(num);
+            } else {
+                alert("Please enter valid positive numbers!");
+                return acceptNum1();
+            }
+        }
+        function acceptNum2() {
+            let num = prompt("Enter first positive number:");
+            if (!isNaN(num) && Number(num) >= 0) {
+                return Number(num);
+            } else {
+                alert("Please enter valid positive numbers!");
+                return acceptNum2();
+            }
+        }
+        function acceptNum3() {
+            let num = prompt("Enter first positive number:");
+            if (!isNaN(num) && Number(num) >= 0) {
+                return Number(num);
+            } else {
+                alert("Please enter valid positive numbers!");
+                return acceptNum3(); 
+            }
+        }
+
+        function checkNumber() {
+            const num1 = acceptNum1()
+            const num2 = acceptNum2()
+            const num3 = acceptNum3()
+
+            console.log(num1)
+            console.log(num2)
+            console.log(num3)
+
+            if (num1 > num2 && num1 > num3) {
+                alert("The largest number is : " + num1)
+            }
+            else if (num2 > num3) {
+                alert("The largest number is : " + num2)
+            }
+            else {
+                alert("The largest number is : " + num3)
+            }
+        }
+        checkNumber()
+    </script>
+</body>
+
+</html>

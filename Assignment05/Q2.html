@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function acceptString(){
+            let str = prompt("Enter the message:")
+            return str    
+        }
+
+        function acceptNum(){
+            let num = prompt("Enter the number of times to print the message:")
+
+            if (!isNaN(num) && Number(num) >= 0) {
+                return Number(num);
+            } else {
+                alert("Please enter valid positive number!");
+                return acceptNum(); 
+            }
+        }
+
+        function print(){
+            const num = acceptNum()
+            const str = acceptString()
+
+            
+            alert("Check the console for the repeated messages!")
+            console.log("Repeated Message:")
+            for(i = 1;i<=num;i++){
+                console.log(`${i}. ${str}`)
+
+            }
+        }
+        print()
+    </script>
+</body>
+</html>
