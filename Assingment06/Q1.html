@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q1</title>
+</head>
+
+<body>
+
+    <h1>Date & Greeting Web Page</h1>
+
+    <p style="color: red;">
+        <h2 id="data">hello</h2>
+    </p>
+
+    <script>
+        const now = new Date()
+
+        const weekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday", "Friday", "Saturday"]
+        const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        
+        const weekday =  weekdays[now.getDay()]
+        const date =  now.getDate()
+        const month = months[now.getMonth()]
+        const year = now.getFullYear()
+        const eoYear = new Date(year, 11, 31)
+
+        const differenceInTime = eoYear.getTime() - now.getTime()
+        const differenceInDays = Math.ceil(differenceInTime / (1000 * 3600 * 24));
+
+        const currentHour = now.getHours();
+        let greeting;
+
+        if (currentHour >= 5 && currentHour < 12) {
+            greeting = "Good Morning";
+        } else if (currentHour >= 12 && currentHour < 18) {
+            greeting = "Good Afternoon";
+        } else {
+            greeting = "Good Evening";
+        }
+
+        const data = document.getElementById("data")
+
+        data.innerHTML = `<h4 style="color:red">
+        <p>Today is ${weekday}, ${date} ${month} ${year},</p>
+        <p>Welcome, and ${greeting} to You</p>
+        <p>Number of days left till the end of year: <span style="color: blue;">${differenceInDays}</span>
+        </p></h4>`
+
+    </script>
+</body>
+
+</html>

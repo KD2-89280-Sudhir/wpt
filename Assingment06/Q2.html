@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q2</title>
+</head>
+<body>
+    <h2>Enter Employees Names</h2>
+
+    <input type="text" id="name" placeholder="Enter employee name">
+    <button onclick="add()" >Add Name</button>
+    <button onclick="sort()" id="sort">Sort & Display</button>
+
+    <h3>Sorted Employee Names:</h3>
+    <ul id="list">
+
+    </ul>
+    <script>
+        const arr = []
+        function add(){
+            const name = document.getElementById("name").value
+            console.log(name)
+            arr.push(name)
+        }
+
+        function sort(){
+            const list = document.getElementById("list")
+            arr.sort()
+            for (const name of arr) {
+                list.innerHTML += `<li>${name}</li>`
+            }
+            
+        }
+
+    </script>
+</body>
+</html>
