@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q1</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <center><img src="new_logo.png" alt="Loading..."></center>
+    <h2 align="center"> Sunbeam Registration Form</h2>
+    <form id="myForm">
+        <table align="center">
+            <tbody>
+                <tr>
+                    <td rowspan="10" width="360"><video width="350" src="samplevideo.mp4" controls> </video></td>
+                    <td><label>Name:</label></td>
+                    <td><input id="fullName" type="text" name="fullName">
+                        <span id="nameError" class="error"></span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td><label>BirthDate:</label></td>
+                    <td><input id="birthDate" type="date" name="birthDate">
+                        <span id="birthError" class="error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Email:</label></td>
+                    <td><input id="email" type="email" name="email">
+                        <span id="emailError" class="error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Password:</label></td>
+                    <td><input id="password" type="password" name="password">
+                        <span id="passwordError" class="error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Address:</label></td>
+                    <td><textarea id="address" rows="6"
+                            name="address">Sunbeam Institute of IT'Anuda Chambers', 203 Shaniwar Peth, Near Gujar Hospital, Karad-415110 (Maharashtra)</textarea>
+                            <span id="addressError" class="error"></span></td>
+                </tr>
+                <tr>
+                    <td><label>Gender:</label></td>
+                    <td><input id="gender1" type="radio" name="gender">Male
+                        <input id="gender2" type="radio" name="gender">Female
+                        <span id="genderError" class="error"></span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td><label>Upload Photo:</label></td>
+                    <td><input id="photo" type="file" name="photo">
+                        <span id="photoError" class="error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Select your Course:</label></td>
+                    <td><select id="course" name="course">
+                            <option value="">Select course</option>
+                            <option value="dac">DAC</option>
+                            <option value="dmc">DMC</option>
+                            <option value="dbda">DBDA</option>
+                            <option value="desd">DESD</option>
+                            <option value="ditiss">DITISS</option>
+                        </select>
+                        <span id="courseError" class="error"></td>
+                </tr>
+                <tr>
+                    <td><label>Skill Set:</label></td>
+                    <td><input name="skills" type="checkbox" name="java">Java
+                        <input name="skills" type="checkbox" name="cpp">CPP
+                        <input name="skills" type="checkbox" name="os">OS
+                        <span id="skillError" class="error"></span></td>
+                </tr>
+                <tr>
+
+                    <td></td>
+                    <td><button type="submit">Register</button>
+                        <button type="reset">Clear</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+    <script>
+        const form = document.getElementById('myForm');
+        let isValid = true;
+
+        form.addEventListener('submit', validateForm);
+
+        function validateForm(event) {
+            event.preventDefault();
+            const name = document.getElementById("fullName").value
+
+            const birthDate = document.getElementById("birthDate").value
+            const email = document.getElementById("email").value
+            const password = document.getElementById("password").value
+            const address = document.getElementById("address").value
+            const gender = document.querySelector('input[name="gender"]:checked');
+            const photo = document.getElementById("photo").value
+            const course = document.getElementById("course").value
+            const skills = document.querySelectorAll('input[name="skill"]:checked');
+
+            validateName(name)
+            validateDate(birthDate)
+            validateEmail(email)
+            validatePassword(password)
+            validateCourse(course)
+            validateGender(gender)
+            validatePhoto(photo)
+            validateAddress(address)
+            validateSkill(skills)
+
+        }
+
+        function validateName(name) {
+
+            if (name.length > 10) {
+                $("#nameError").text("Only alphabets allowed, max 10 chars.");
+                isValid = false
+            }
+        }
+
+        function validateDate(date) {
+            const now = new Date()
+            const birth = new Date(date)
+
+            const age = now.getFullYear() - birth.getFullYear()
+            if (age < 18) {
+                $("#birthError").text("You must be at least 18 years old.");
+                isValid = false
+            }
+        }
+        function validateEmail(email) {
+
+            if (!email) {
+                $("#emailError").text("Email is required.");
+                isValid = false
+            }
+        }
+        function validatePassword(password) {
+
+            if (password.length <= 8 || !password.includes("#") || !/\d/.test(password)) {
+                $("#passwordError").text("Password must be at least 9 characters, contain # and one digit.");
+                isValid = false;
+            }
+        }
+        function validatePhoto(photo) {
+
+            if (!photo) {
+                $("#photoError").text("Photo is required.");
+                isValid = false
+            }
+        }
+
+        function validateCourse(course) {
+            if (course === "") {
+                $("#courseError").text("Please select a course.");
+                isValid = false;
+            }
+        }
+
+        function validateGender(gender) {
+            if (!gender) {
+                $("#genderError").text("Gender is required.");
+                isValid = false;
+            }
+        }
+
+        function validateSkill(skill) {
+            if (skill.length === 0) {
+                $("#skillError").text("Select at least one skill.");
+                isValid = false;
+            }
+        }
+
+        function validateAddress(address) {
+            if (!address) {
+                $("#addressError").text("Address is required.");
+                isValid = false;
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
